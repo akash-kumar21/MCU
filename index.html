@@ -8,22 +8,68 @@
   <meta name="description" content="Hello World">
   <meta name="Akash Kumar" content="MCU">
   <link rel="stylesheet" href="css/style1.css">
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 1050px;
+  }
+
+  }
+  </style>
 </head>
 
 <header>
-  <h1>The Marvel Cinematic Universe</h1>
-  <h2>Witty Subtitle</h2>
+  <h1 style="text-align:center"> The Marvel Cinematic Universe</h1>
+  <h2 style="text-align:center">Witty Subtitle</h2>
 </header>
 
+
 <body>
-  <p><a href="about.html">Link to about.html</a></p>
-  <img src="mcu.jpeg" alt="">
+  <div class="row">
+
+    <div class="column" style="background-color:#FFF;">
+      <h1 style="text-align:center"> Links </h1>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="about.html">About</a></p>
+    </div>
+
+    <div class="column" style="background-color:#00F;">
+      <h1 style="text-align:center"> Media </h1>
+
+      <table style="width:100%">
+        <tr>
+          <th><h2>MCU in a Snapshot</h2><figure><img class = "roster" title="MCU in a Snapshot" src="mcu.jpeg" alt=""><figcaption>Characters of the MCU</figcaption></figure></th>
+        </tr>
+        <tr>
+          <td><iframe width="570" height="315" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" allowfullscreen></iframe>
+      </iframe></td>
+        </tr>
+        <tr>
+          <td><embed src="The-Avengers-Theme-Song.mp3" width="570" height="315"></td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="column" style="background-color:#FFF;">
+      <h1 style="text-align:center"> Coming Soon... </h1>
+      <p>Sample text</p>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 
 <footer>
+  <hr>
   <p>Author: Akash Kumar</p>
-  <p>You can email me at <a href="mailto:akash.kumar21@trinityschoolnyc.org.org">this address</a>.</p>
+  <p>You can email me at <a href="mailto:akash.kumar21@trinityschoolnyc.org">this address</a>.</p>
 </footer>
 
 </html>
