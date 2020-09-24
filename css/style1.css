@@ -3,6 +3,10 @@ body {
 }
 
 h1.links {
+  font-family: 'Arial', serif;
+}
+
+h1.comingsoon {
   font-family: 'Tangerine', serif;
 }
 
