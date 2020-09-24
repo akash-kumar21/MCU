@@ -9,21 +9,7 @@
   <meta name="Akash Kumar" content="MCU">
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-  <style>
-  * {
-    box-sizing: border-box;
-  }
 
-  /* Create three equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    height: 1130px;
-  }
-
-  }
-  </style>
 </head>
 
 <header>
@@ -34,37 +20,49 @@
 
 <body>
 
-  <div class="row">
-
-    <div class="column" style="background-color:#FFF;">
-      <h1 class = "links" style="text-align:center"> Links </h1>
-      <h2><a href="index.html">Home</a></h2>
-      <h2><a href="about.html">About</a></h2>
-    </div>
-
-    <div class="column" style="background-color:#00F;">
-      <h1 class = "media" style="text-align:center"> Media </h1>
-
-      <table style="width:100%">
-        <tr>
-          <th><h2>MCU in a Snapshot</h2><figure><img class = "roster" title="MCU in a Snapshot" src="mcu.jpeg" alt=""><figcaption>Characters of the MCU</figcaption></figure></th>
-        </tr>
-        <tr>
-          <td><iframe width="570" height="315" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" allowfullscreen></iframe>
-      </iframe></td>
-        </tr>
-        <tr>
-          <td><embed src="The-Avengers-Theme-Song.mp3" width="570" height="315"></td>
-        </tr>
-      </table>
-
-    </div>
-
-    <div class="column" style="background-color:#FFF;">
-      <h1 class = "comingsoon" style="text-align:center"> Coming Soon... </h1>
-      <p>Sample text</p>
-    </div>
-  </div>
+  <table>
+    <tr>
+      <td valign="top" class="column1" >
+        <h1 class = "links" style="text-align:center"> Links </h1>
+        <h2><a href="index.html">Home</a></h2>
+        <h2><a href="about.html">About</a></h2>
+      </td>
+      <td valign="top" class="column2" >
+        <table>
+          <tr>
+            <td><h1 style="text-align:center">Media</h1></td>
+          </tr>
+          <tr>
+            <td>
+              <h2 style="text-align:center">MCU in a Snapshot</h2>
+              <figure>
+                <img class = "roster" title="MCU in a Snapshot" src="mcu.jpeg" alt="">
+                <figcaption style="text-align:center">This image combines the movie posters of several MCU films.</figcaption>
+              </figure>
+            </td>
+          </tr>
+          </tr>
+          <tr>
+            <td>
+              <h2 style="text-align:center">Best Trailer of All Time</h2>
+              <iframe class = "trailer" width="570" height="315" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" ></iframe>
+              <p style="text-align:center">This the trailer for Avengers: Infinity War (2018). </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h2 style="text-align:center">Get Hype</h2>
+              <embed class = "song" width="570" height="315" src="The-Avengers-Theme-Song.mp3">
+              <p style="text-align:center">This is the theme song for the original Avengers film.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td valign="top" class="column3" >
+        <h1 class = "comingsoon" style="text-align:center"> Coming Soon... </h1>
+      </td>
+    </tr>
+  </table>
   <script src="script.js"></script>
 </body>
 
