@@ -1,21 +1,41 @@
+/*
+#2B2D42
+#8D99AE
+#EDF2F4
+#EF233C
+#D90429
+*/
+
+
 body {
-  background-color: #ED1D24;
+  color: #000000;
+  background-color: #8D99AE;
+  font-family: 'Bebas Neue';
 }
 
-h1.links {
-  font-family: 'Arial', serif;
+#links {
+  color: #D90429;
+  font-size: 40px;
 }
 
-h1.comingsoon {
-  font-family: 'Tangerine', serif;
+
+a#homelink {
+  color: #D90429;
 }
+
+#aboutlink {
+  color: #D90429;
+}
+
 
 
 
 img.roster {
   width: 90%;
   display: block;
-  border: 15px solid blue;
+  border: 15px;
+  border-color: #EDF2F4;
+  border-style: double;
   padding: 10px;
   margin: 10px;
 }
@@ -37,7 +57,7 @@ embed.song {
 
 
 
-td.column1 {
+.column1 {
   width: 600px;
 }
 td.column2 {
