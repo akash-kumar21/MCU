@@ -1,0 +1,36 @@
+<%- include('global/header', {title: data.title}); %>
+<%- include('global/navbar', {posts: allPosts}); %>
+
+
+<div class="blog-body container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class = "text-center"><%= data.title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class = "text-center"><img  height = "500" src="media/<%=data.image%>"></div>
+    </div>
+  </div>
+  <br></br>
+  <div class="row">
+    <div class="col-12">
+      <p>Date: <%= data.date %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p>Author: <%= data.author %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p><%= data.content %></p>
+    </div>
+  </div>
+</div>
+
+
+
+<%- include('global/footer'); %>

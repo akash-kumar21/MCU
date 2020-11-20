@@ -1,0 +1,48 @@
+<%- include('global/header', {title: 'The Marvel Cinematic Universe'}); %>
+<%- include('global/navbar', {posts: allPosts}); %>
+
+
+
+
+
+<div id = "index-body" class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <h1 id = "index-left-links"> Links </h1>
+      <h2><a id = "index-home-link" href="index.html">Home</a></h2>
+      <h2><a id = "index-about-link" href="about.html">About</a></h2>
+    </div>
+    <div class="col-4">
+      <h1 class = "text-center" >Media</h1>
+      <h2 id = "index-mcu-snapshot" class = "text-center">MCU in a Snapshot</h2>
+      <figure>
+        <img class = "roster" title="MCU in a Snapshot" src="media/mcu.jpeg" width="572" autostart="0" autoplay="0" alt="">
+        <figcaption class = "text-center" >Image combines the movie posters of several MCU films.</figcaption>
+      </figure>
+
+      <br></br>
+
+      <h2 id = "index-best-trailer" class = "text-center" >Best Trailer of All Time</h2>
+      <iframe class = "text-center trailer" width="570" height="315" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" ></iframe>
+      <p class = "text-center" > Trailer for Avengers: Infinity War (2018). </p>
+
+      <br></br>
+
+      <h2 id = "index-get-hype" class = "text-center">Get Hype</h2>
+      <embed class = "text-center song" width="570" height="315" src="media/The-Avengers-Theme-Song.mp3">
+      <p class = "text-center">Theme song for the original Avengers film.</p>
+
+    </div>
+    <div class="col-4">
+      <h1 id = "comingsoon" class = "text-center"> Blog Posts </h1>
+        <% Array.from(allPosts).forEach(function(post){%>
+          <% let filename = post.title.replace(/ /g, "-"); %>
+          <h2 class="text-center"><a href="<%=filename%>.html"><%=post.title%></a></h2>
+          <br></br>
+        <%})%>
+    </div>
+  </div>
+</div>
+
+
+<%- include('global/footer'); %>

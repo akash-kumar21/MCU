@@ -1,0 +1,79 @@
+/*
+#2B2D42
+#8D99AE
+#EDF2F4
+#EF233C
+#D90429
+*/
+
+
+body {
+  color: #000000;
+  background-color: #8D99AE;
+  font-family: 'Bebas Neue';
+}
+
+h2 {
+  text-align: center;
+}
+
+#links {
+  color: #D90429;
+  font-size: 40px;
+}
+
+
+a#homelink {
+  color: #D90429;
+}
+
+#aboutlink {
+  color: #D90429;
+}
+
+/*
+#alphaHeader {
+  color: #D90429;
+  font-family: 'Bebas Neue';
+  font-size: 60px;}
+}
+*/
+
+
+
+img.roster {
+  width: 90%;
+  display: block;
+  border: 15px;
+  border-color: #EDF2F4;
+  border-style: double;
+  padding: 10px;
+  margin: 10px;
+}
+
+iframe.trailer {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+embed.song {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+.column1 {
+  width: 600px;
+}
+td.column2 {
+  width: 600px;
+}
+td.column3 {
+  width: 600px;
+}
