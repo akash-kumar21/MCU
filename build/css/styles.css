@@ -17,6 +17,11 @@
 #EF233C
 #D90429
 */
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
 #index-body {
   background-color: #8D99AE;
   font-family: 'Bebas Neue';
@@ -48,12 +53,14 @@ h2 {
   font-family: 'Bebas Neue';
   font-size: 60px;
 }
+/*
 #damon-header {
   position: relative;
   left: 570px;
   font-family: 'Bebas Neue';
   font-size: 60px;
 }
+*/
 #beta-header {
   font-family: 'Anton';
   font-size: 45px;
@@ -78,6 +85,21 @@ embed.song {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+#about-about {
+  font-size: 45px;
+}
+#about-home {
+  font-size: 35px;
+}
+#about-content {
+  font-size: 25px;
+}
+#about-three-links-are {
+  font-size: 25px;
+}
+#about-list {
+  font-size: 20px;
 }
 #header-body {
   /*background-color: @space-gray;*/

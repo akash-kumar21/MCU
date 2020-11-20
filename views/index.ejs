@@ -37,9 +37,20 @@
       <h1 id = "comingsoon" class = "text-center"> Blog Posts </h1>
         <% Array.from(allPosts).forEach(function(post){%>
           <% let filename = post.title.replace(/ /g, "-"); %>
-          <h2 class="text-center"><a href="<%=filename%>.html"><%=post.title%></a></h2>
+          <div class="card text-center " style="width: 18rem;">
+            <img class="card-img-top" src="media/<%=post.image%>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%=post.title%></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="<%=filename%>.html" class="btn btn-primary">Post</a>
+            </div>
+          </div>
           <br></br>
-        <%})%>
+
+          <!--<h2 class="text-center"><a href="<%=filename%>.html"><%=post.title%></a></h2>
+          <br></br>-->
+        <%});%>
+
     </div>
   </div>
 </div>
