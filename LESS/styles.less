@@ -9,11 +9,6 @@
 @light-red: lighten(@marvel-red, 20%);
 @akash-pink: mix(@cardinal-red, @space-gray, 50%);
 
-
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Bebas Neue');
-@import url('https://fonts.googleapis.com/css?family=Anton');
-
 /* Mixins */
 .borderify {
   border: 15px;
@@ -30,12 +25,26 @@
   margin-right: auto;
 }
 
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Bebas Neue');
+@import url('https://fonts.googleapis.com/css?family=Anton');
 
 
-.card {
-  margin: 0 auto;
-  float: none;
-  margin-bottom: 10px;
+
+
+#alpha-header {
+  color: @marvel-red;
+  font-family: 'Bebas Neue';
+  font-size: 60px;
+}
+
+#beta-header {
+  font-family: 'Anton';
+  font-size: 45px;
+}
+
+#footer-body {
+  background-color: @akash-pink;
 }
 
 #index-body {
@@ -43,15 +52,10 @@
   font-family: 'Bebas Neue';
 }
 
-h2 {
-  text-align: center;
-}
-
 #index-left-links {
   font-size: 40px;
-  text-align:center;
+  text-align: center;
 }
-
 
 #index-home-link {
   color: @marvel-red;
@@ -73,20 +77,9 @@ h2 {
   font-size: 30px;
 }
 
-
-#alpha-header {
-  color: @marvel-red;
-  font-family: 'Bebas Neue';
-  font-size: 60px;
+h2 {
+  text-align: center;
 }
-
-#beta-header {
-  font-family: 'Anton';
-  font-size: 45px;
-}
-
-
-
 
 img.roster {
   width: 90%;
@@ -126,16 +119,14 @@ embed.song {
   font-size: 20px;
 }
 
-#header-body {
-  /*background-color: @space-gray;*/
-}
-
-#footer-body {
-  background-color: @akash-pink;
-}
-
 .blog-body {
   background-color: @space-gray;
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
 }
 
 #about-body {

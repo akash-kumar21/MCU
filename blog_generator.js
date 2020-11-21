@@ -11,7 +11,7 @@ for (let i = 0; i < posts.length; i++) {
     data: posts[i],
     allPosts: posts
   });
-  let name = "build/" + (posts[i]['title'].replace(/ /g, "-")) + '.html'//.replaceAll(' ', '_');
+  let name = "build/" + (posts[i]['title'].replace(/ /g, "-")) + '.html';
   fs.writeFileSync(name, blog_html, 'utf8');
 }//loop through each blog post
 

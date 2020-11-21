@@ -1,18 +1,5 @@
 /* Color Pallete */
 /* new colors using built-in LESS color functions */
-/* Google Fonts */
-@font-face {
-  font-family: 'Bebas Neue';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/bebasneue/v2/JTUSjIg69CK48gW7PXoo9Wlhzg.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Anton';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/anton/v12/1Ptgg87LROyAm3Kz-Co.ttf) format('truetype');
-}
 /* Mixins */
 .borderify {
   border: 15px;
@@ -27,17 +14,34 @@
   margin-left: auto;
   margin-right: auto;
 }
-.card {
-  margin: 0 auto;
-  float: none;
-  margin-bottom: 10px;
+/* Google Fonts */
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/bebasneue/v2/JTUSjIg69CK48gW7PXoo9Wlhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/anton/v12/1Ptgg87LROyAm3Kz-Co.ttf) format('truetype');
+}
+#alpha-header {
+  color: #D90429;
+  font-family: 'Bebas Neue';
+  font-size: 60px;
+}
+#beta-header {
+  font-family: 'Anton';
+  font-size: 45px;
+}
+#footer-body {
+  background-color: #be5e75;
 }
 #index-body {
   background-color: #8D99AE;
   font-family: 'Bebas Neue';
-}
-h2 {
-  text-align: center;
 }
 #index-left-links {
   font-size: 40px;
@@ -58,14 +62,8 @@ h2 {
 #index-get-hype {
   font-size: 30px;
 }
-#alpha-header {
-  color: #D90429;
-  font-family: 'Bebas Neue';
-  font-size: 60px;
-}
-#beta-header {
-  font-family: 'Anton';
-  font-size: 45px;
+h2 {
+  text-align: center;
 }
 img.roster {
   width: 90%;
@@ -106,14 +104,13 @@ embed.song {
 #about-list {
   font-size: 20px;
 }
-#header-body {
-  /*background-color: @space-gray;*/
-}
-#footer-body {
-  background-color: #be5e75;
-}
 .blog-body {
   background-color: #8D99AE;
+}
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
 }
 #about-body {
   background-color: #fc4767;
