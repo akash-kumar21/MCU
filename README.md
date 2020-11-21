@@ -10,4 +10,4 @@ Now, to actually generate the webpages, execute the following in the terminal:
   1) ./node_modules/less/bin/lessc ./LESS/styles.less ./build/css/styles.css
   2) node blog_generator.js
 
-(1) compiles the LESS into CSS, and (2) generates the html files through the EJS templates.
+(1) compiles the LESS into CSS, and (2) generates the html files through the EJS templates and data/content.json.
