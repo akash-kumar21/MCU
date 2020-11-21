@@ -1,18 +1,36 @@
-@marvel-red: #D90429;
+/* Color Pallete */
+@midnight-black: #2B2D42;
 @space-gray: #8D99AE;
-@different: lighten(@marvel-red, 20%);
+@linen-white: #EDF2F4;
+@cardinal-red: #EF233C;
+@marvel-red: #D90429;
 
+/* new colors using built-in LESS color functions */
+@light-red: lighten(@marvel-red, 20%);
+@akash-pink: mix(@cardinal-red, @space-gray, 50%);
+
+
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Bebas Neue');
 @import url('https://fonts.googleapis.com/css?family=Anton');
 
+/* Mixins */
+.borderify {
+  border: 15px;
+  border-color: @linen-white;
+  border-style: double;
+  padding: 10px;
+  margin: 10px;
+}
 
-/*
-#2B2D42
-#8D99AE
-#EDF2F4
-#EF233C
-#D90429
-*/
+.display {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 
 .card {
   margin: 0 auto;
@@ -36,11 +54,11 @@ h2 {
 
 
 #index-home-link {
-  color: #D90429;
+  color: @marvel-red;
 }
 
 #index-about-link {
-  color: #D90429;
+  color: @marvel-red;
 }
 
 #index-mcu-snapshot {
@@ -61,14 +79,6 @@ h2 {
   font-family: 'Bebas Neue';
   font-size: 60px;
 }
-/*
-#damon-header {
-  position: relative;
-  left: 570px;
-  font-family: 'Bebas Neue';
-  font-size: 60px;
-}
-*/
 
 #beta-header {
   font-family: 'Anton';
@@ -81,25 +91,15 @@ h2 {
 img.roster {
   width: 90%;
   display: block;
-  border: 15px;
-  border-color: #EDF2F4;
-  border-style: double;
-  padding: 10px;
-  margin: 10px;
+  .borderify();
 }
 
 iframe.trailer {
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  .display();
 }
 
 embed.song {
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  .display();
 }
 
 #about-about {
@@ -108,6 +108,10 @@ embed.song {
 
 #about-home {
   font-size: 35px;
+}
+
+#about-home-link {
+  color: @linen-white;
 }
 
 #about-content {
@@ -127,7 +131,7 @@ embed.song {
 }
 
 #footer-body {
-  /*background-color: @space-gray;*/
+  background-color: @akash-pink;
 }
 
 .blog-body {
@@ -135,5 +139,25 @@ embed.song {
 }
 
 #about-body {
-  background-color: @space-gray;
+  background-color: @light-red;
+}
+
+#about-link-1 {
+  color: @linen-white;
+}
+
+#about-link-2 {
+  color: @linen-white;
+}
+
+#about-link-3 {
+  color: @linen-white;
+}
+
+.blog-image {
+  .borderify();
+}
+
+#footer-email {
+  color: @linen-white;
 }

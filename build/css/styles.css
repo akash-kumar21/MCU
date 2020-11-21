@@ -1,3 +1,6 @@
+/* Color Pallete */
+/* new colors using built-in LESS color functions */
+/* Google Fonts */
 @font-face {
   font-family: 'Bebas Neue';
   font-style: normal;
@@ -10,13 +13,20 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/anton/v12/1Ptgg87LROyAm3Kz-Co.ttf) format('truetype');
 }
-/*
-#2B2D42
-#8D99AE
-#EDF2F4
-#EF233C
-#D90429
-*/
+/* Mixins */
+.borderify {
+  border: 15px;
+  border-color: #EDF2F4;
+  border-style: double;
+  padding: 10px;
+  margin: 10px;
+}
+.display {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .card {
   margin: 0 auto;
   float: none;
@@ -53,14 +63,6 @@ h2 {
   font-family: 'Bebas Neue';
   font-size: 60px;
 }
-/*
-#damon-header {
-  position: relative;
-  left: 570px;
-  font-family: 'Bebas Neue';
-  font-size: 60px;
-}
-*/
 #beta-header {
   font-family: 'Anton';
   font-size: 45px;
@@ -92,6 +94,9 @@ embed.song {
 #about-home {
   font-size: 35px;
 }
+#about-home-link {
+  color: #EDF2F4;
+}
 #about-content {
   font-size: 25px;
 }
@@ -105,11 +110,30 @@ embed.song {
   /*background-color: @space-gray;*/
 }
 #footer-body {
-  /*background-color: @space-gray;*/
+  background-color: #be5e75;
 }
 .blog-body {
   background-color: #8D99AE;
 }
 #about-body {
-  background-color: #8D99AE;
+  background-color: #fc4767;
+}
+#about-link-1 {
+  color: #EDF2F4;
+}
+#about-link-2 {
+  color: #EDF2F4;
+}
+#about-link-3 {
+  color: #EDF2F4;
+}
+.blog-image {
+  border: 15px;
+  border-color: #EDF2F4;
+  border-style: double;
+  padding: 10px;
+  margin: 10px;
+}
+#footer-email {
+  color: #EDF2F4;
 }
