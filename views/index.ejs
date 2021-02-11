@@ -6,8 +6,8 @@
   <div class="row">
     <div class="col-4">
       <h1 id = "index-left-links"> Links </h1>
-      <h2><a id = "index-home-link" class = "text-center" href="index.html">Home</a></h2>
-      <h2><a id = "index-about-link" class = "text-center" href="about.html">About</a></h2>
+      <h2><a id = "index-home-link" class = "text-center" href="/">Home</a></h2>
+      <h2><a id = "index-about-link" class = "text-center" href="/about">About</a></h2>
     </div>
     <div class="col-4">
       <h1 class = "text-center" >Media</h1>
@@ -32,18 +32,18 @@
     </div>
     <div class="col-4">
       <h1 id = "comingsoon" class = "text-center"> Blog Posts </h1>
-        <% Array.from(allPosts).forEach(function(post){%>
+        <% for (post of Object.values(allPosts)) {%>
           <% let filename = post.title.replace(/ /g, "-"); %>
           <div class="card text-center " style="width: 18rem;">
             <img class="card-img-top" src="media/<%=post.image%>" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%=post.title%></h5>
               <p class="card-text"><%=post.previewContent%></p>
-              <a href="<%=filename%>.html" class="btn btn-primary">Post</a>
+              <a href="blogs/<%=filename%>" class="btn btn-primary">Post</a>
             </div>
           </div>
           <br></br>
-        <%});%>
+        <%}%>
     </div>
   </div>
 </div>

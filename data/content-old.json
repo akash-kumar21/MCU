@@ -1,6 +1,6 @@
-{
-  "Spiderverse": {
-    "title": "Spiderverse",
+[
+  {
+    "title": "Spiderverse!!!",
     "image": "spider-verse.jpeg",
     "date": "November 1, 2020",
     "author": "Akash Kumar",
@@ -29,8 +29,8 @@
       ]
     ]
   },
-  "WandaVision-Leak": {
-    "title": "WandaVision-Leak",
+  {
+    "title": "WandaVision Leak",
     "image": "wanda-vision.jpeg",
     "date": "November 2, 2020",
     "author": "Akash Kumar",
@@ -59,8 +59,8 @@
       ]
     ]
   },
-  "What-If": {
-    "title": "What-If",
+  {
+    "title": "What If...",
     "image": "what-if.jpeg",
     "date": "November 3, 2020",
     "author": "Akash Kumar",
@@ -92,8 +92,8 @@
       ]
     ]
   },
-  "Black-Widow": {
-    "title": "Black-Widow",
+  {
+    "title": "Black Widow",
     "image": "black-widow.jpg",
     "date": "November 5, 2020",
     "author": "Akash Kumar",
@@ -117,7 +117,7 @@
       ]
     ]
   },
-  "Loki": {
+  {
     "title": "Loki",
     "image": "loki.png",
     "date": "November 8, 2020",
@@ -142,4 +142,4 @@
       ]
     ]
   }
-}
+]

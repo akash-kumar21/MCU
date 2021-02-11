@@ -1,0 +1,37 @@
+<%- include('global/header', {title: "MCU: Create Blog"}); %>
+<%- include('global/navbar', {posts: allPosts}); %>
+
+
+
+<h1>Create Blog</h1>
+
+<form action="/user"  method="post">
+  <label for="title">Title:</label><br>
+   <input type="text" id="title" name="title"><br>
+
+   <label for="photo_link">Photo Link:</label><br>
+   <input type="url" id="photo_link" name="photo_link"><br>
+
+   <label for="date">Date:</label><br>
+    <input type="date" id="date" name="date"><br>
+
+    <label for="author">Author:</label><br>
+     <input type="author" id="author" name="author"><br>
+
+     <label for="previewContent">Preview Content:</label><br>
+      <input type="previewContent" id="previewContent" name="previewContent"><br>
+
+      <label for="content">Content:</label><br>
+       <input type="content" id="content" name="content"><br>
+
+       <label for="tags">Tags:</label><br>
+        <input type="tags" id="tags" name="tags"><br>
+
+
+
+    <input type="submit" value="Submit">
+</form>
+
+
+
+<%- include('global/footer'); %>

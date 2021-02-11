@@ -1,4 +1,4 @@
-<%- include('global/header', {title: "MCU: " + data.title}); %>
+<%- include('global/header', {title: "MCU: " + post.title}); %>
 <%- include('global/navbar', {posts: allPosts}); %>
 
 
@@ -6,37 +6,37 @@
 <div class="blog-body container">
   <div class="row">
     <div class="col-12">
-      <h1 class = "text-center"><%= data.title %></h1>
+      <h1 class = "text-center"><%= post.title.replace("-", " ") %></h1>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <div class = "text-center"><img class = "blog-image" height = "500" src="media/<%=data.image%>"></div>
+      <div class = "text-center"><img class = "blog-image" height = "500" src="../media/<%=post.image%>"></div>
     </div>
   </div>
   <br></br>
   <div class="row">
     <div class="col-12">
-      <p>Date: <%= data.date %></p>
+      <p>Date: <%= post.date %></p>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <p>Author: <%= data.author %></p>
+      <p>Author: <%= post.author %></p>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <%Array.from(data.content).forEach(function(paragraph) {%>
+      <%Array.from(post.content).forEach(function(paragraph) {%>
         <p><%= paragraph%></p>
       <%});%>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <%for (let i = 0; i < data.tags.length; i++) {%>
-        <% let tag = data.tags[i][0]; %>
-        <% let cls = data.tags[i][1]; %>
+      <%for (let i = 0; i < post.tags.length; i++) {%>
+        <% let tag = post.tags[i][0]; %>
+        <% let cls = post.tags[i][1]; %>
         <h5><span class="badge badge-pill badge-<%=cls%>">#<%=tag %></span></h5>
       <%}%>
     </div>
