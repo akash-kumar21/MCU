@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Interest Site Redesign 3.0",
   "main": "server.js",
+  "scripts": {
+    "compile:css": "./node_modules/less/bin/lessc ./LESS/styles.less > ./public/css/styles.css",
+    "compile": "npm run compile:css",
+    "build": "npm run compile"
+  },
   "engines": {
     "node": "12.18.3"
   },
@@ -33,9 +38,6 @@
     }
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/akash-kumar21/MCU.git"

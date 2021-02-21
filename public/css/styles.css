@@ -25,7 +25,7 @@
   font-family: 'Anton';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/anton/v12/1Ptgg87LROyAm3Kz-Co.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/anton/v15/1Ptgg87LROyAm3Kz-Co.ttf) format('truetype');
 }
 #alpha-header {
   color: #D90429;
@@ -134,7 +134,14 @@ embed.song {
 #footer-email {
   color: #EDF2F4;
 }
-
-.hidden{
+.hidden {
   visibility: hidden;
+}
+#error-body {
+  background-color: #8D99AE;
+  font-family: 'Bebas Neue';
+}
+#create-blog-body {
+  background-color: #8D99AE;
+  font-family: 'Bebas Neue';
 }

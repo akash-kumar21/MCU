@@ -146,38 +146,5 @@
       ]
     ],
     "winks": 4
-  },
-  "Test-Title": {
-    "title": "Test-Title",
-    "image": "https://media.cntraveler.com/photos/5cedafa8d3381df5e267daf2/master/pass/Lofoten-Islands-_GettyImages-583610815.jpg",
-    "date": "February 20, 2021",
-    "author": "Steve Rogers",
-    "previewContent": "preview content",
-    "content": [
-      "content para 1",
-      "content para 2"
-    ],
-    "tags": [
-      [
-        "tag1",
-        "success"
-      ],
-      [
-        "tag2",
-        "danger"
-      ],
-      [
-        "tag3",
-        "warning"
-      ]
-    ],
-    "comments": [
-      {
-        "author": "Tony Stark",
-        "date": "February 20, 2021",
-        "content": "what a beautiful scene!",
-        "likes": 2
-      }
-    ]
   }
 }
