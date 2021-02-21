@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <div class = "text-center"><img class = "blog-image" height = "500" src="../media/<%=post.image%>"></div>
+      <div class = "text-center"><img class = "blog-image" height = "500" src="<%=post.image%>"></div>
     </div>
   </div>
   <br></br>
@@ -41,8 +41,69 @@
       <%}%>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <% let numWinks = 0; %>
+      <% if (post.winks) {%>
+        <% numWinks = post.winks; %>
+      <%}%>
+      <% if (!post.winks) {%>
+        <% numWinks = 0; %>
+      <%}%>
+      <h2>Winks:
+        <span id="wink_count"><%=numWinks%></span>
+        <button id="wink_button" class = "btn btn-success btn-lg" type="button">Wink</button>
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div id = "create_comment" class = "text-center" >
+        <h1 class = "text-center"> Leave a Comment Below! </h1>
+
+        <% let authors = ["Tony Stark", "Steve Rogers", "Bruce Banner", "Peter Parker"]; %>
+        <label for="author">Author:</label><br>
+        <select name="author" id="author">
+          <% for (let author of authors) {%>
+            <option value="<%=author%>"><%=author%></option>
+          <%}%>
+        </select>
+        <br></br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content"></textarea>
+        <br></br>
+
+        <button id = "comment_button" class = "btn btn-success" type = "button"> Post! </button>
+        <br></br>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div id = "comment-block" class = "text-center"> </div>
+      <% if (post.comments) {%>
+        <% for (let i = 0; i < post.comments.length ; i++) {%>
+          <% let comment = post.comments[i]; %>
+          <div>
+            <hr>
+            <p class = "text-center">Author: <%=comment.author%></p>
+            <p class = "text-center">Date: <%=comment.date%></p>
+            <p class = "text-center"><%=comment.content%></p>
+            <p class = "text-center">Likes:
+              <span id = "like_count_<%=i%>" class="like_count"><%=comment.likes%></span>
+              <button id = "like_button_<%=i%>" class ="like_button btn btn-success btn-sm" type="button">Like</button>
+            </p>
+            <br>
+          </div>
+        <%}%>
+      <%}%>
+    </div>
+  </div>
 </div>
 
+<script src = "/js/blogScripts.js"></script>
 
 
 <%- include('global/footer'); %>

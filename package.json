@@ -1,16 +1,36 @@
 {
   "name": "mcu",
   "version": "1.0.0",
-  "description": "My Interest Site Redesign",
+  "description": "Interest Site Redesign 3.0",
   "main": "server.js",
   "engines": {
     "node": "12.18.3"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "less": "^3.12.2"
+  },
+  "jshintConfig": {
+    "browser": true,
+    "curly": true,
+    "eqeqeq": true,
+    "undef": true,
+    "forin": true,
+    "unused": true,
+    "funcscope": true,
+    "varstmt": true,
+    "devel": true,
+    "esversion": 6,
+    "globals": {
+      "Plotly": true,
+      "window": true,
+      "document": true,
+      "console": true,
+      "alert": true
+    }
   },
   "devDependencies": {},
   "scripts": {

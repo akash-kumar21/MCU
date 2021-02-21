@@ -1,7 +1,7 @@
 {
   "Spiderverse": {
     "title": "Spiderverse",
-    "image": "spider-verse.jpeg",
+    "image": "../media/spider-verse.jpeg",
     "date": "November 1, 2020",
     "author": "Akash Kumar",
     "previewContent": "My take on the Spider-Verse rumors",
@@ -27,11 +27,12 @@
         "hero",
         "success"
       ]
-    ]
+    ],
+    "winks": 1
   },
   "WandaVision-Leak": {
     "title": "WandaVision-Leak",
-    "image": "wanda-vision.jpeg",
+    "image": "../media/wanda-vision.jpeg",
     "date": "November 2, 2020",
     "author": "Akash Kumar",
     "previewContent": "What's up with WandaVision?",
@@ -57,11 +58,12 @@
         "vision",
         "info"
       ]
-    ]
+    ],
+    "winks": 16
   },
   "What-If": {
     "title": "What-If",
-    "image": "what-if.jpeg",
+    "image": "../media/what-if.jpeg",
     "date": "November 3, 2020",
     "author": "Akash Kumar",
     "previewContent": "A preview of Disney+'s upcoming show What If...?",
@@ -90,11 +92,12 @@
         "alternateuniverse",
         "light"
       ]
-    ]
+    ],
+    "winks": 9
   },
   "Black-Widow": {
     "title": "Black-Widow",
-    "image": "black-widow.jpg",
+    "image": "../media/black-widow.jpg",
     "date": "November 5, 2020",
     "author": "Akash Kumar",
     "previewContent": "What ever happened to Black Widow? Will it ever come to the big screens? Click to find out.",
@@ -115,11 +118,12 @@
         "romanoff",
         "primary"
       ]
-    ]
+    ],
+    "winks": 2
   },
   "Loki": {
     "title": "Loki",
-    "image": "loki.png",
+    "image": "../media/loki.png",
     "date": "November 8, 2020",
     "author": "Akash Kumar",
     "previewContent": "Loki. Need I say anything else?",
@@ -140,6 +144,40 @@
         "loki",
         "success"
       ]
+    ],
+    "winks": 4
+  },
+  "Test-Title": {
+    "title": "Test-Title",
+    "image": "https://media.cntraveler.com/photos/5cedafa8d3381df5e267daf2/master/pass/Lofoten-Islands-_GettyImages-583610815.jpg",
+    "date": "February 20, 2021",
+    "author": "Steve Rogers",
+    "previewContent": "preview content",
+    "content": [
+      "content para 1",
+      "content para 2"
+    ],
+    "tags": [
+      [
+        "tag1",
+        "success"
+      ],
+      [
+        "tag2",
+        "danger"
+      ],
+      [
+        "tag3",
+        "warning"
+      ]
+    ],
+    "comments": [
+      {
+        "author": "Tony Stark",
+        "date": "February 20, 2021",
+        "content": "what a beautiful scene!",
+        "likes": 2
+      }
     ]
   }
 }

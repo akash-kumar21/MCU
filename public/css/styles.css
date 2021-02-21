@@ -134,3 +134,7 @@ embed.song {
 #footer-email {
   color: #EDF2F4;
 }
+
+.hidden{
+  visibility: hidden;
+}

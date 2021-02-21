@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>MCU</title>
-<link rel="icon" href="media/favicon.png" type="image" sizes="16x16">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-<h1> <%=errorCode%> Error</h1>
-<p> The resource you requested has not been found.</p>
-<script src="/js/scripts.js"></script>
-</body>
-</html>
+<%- include('global/header', {title: 'MCU: Error'}); %>
+<%- include('global/navbar', {posts: allPosts}); %>
+
+<div style = "height: 600px;" id = "index-body" class="row">
+  <div class="col-12">
+    <br></br>
+    <h1 class = "text-center"> <%=errorCode%> Error</h1>
+    <p class = "text-center"> The resource you requested has not been found.</p>
+  </div>
+</div>
+
+
+<%- include('global/footer'); %>

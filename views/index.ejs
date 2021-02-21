@@ -8,6 +8,7 @@
       <h1 id = "index-left-links"> Links </h1>
       <h2><a id = "index-home-link" class = "text-center" href="/">Home</a></h2>
       <h2><a id = "index-about-link" class = "text-center" href="/about">About</a></h2>
+      <h2><a id = "index-home-link" class = "text-center" href="/createBlog">Create Blog</a></h2>
     </div>
     <div class="col-4">
       <h1 class = "text-center" >Media</h1>
@@ -35,7 +36,7 @@
         <% for (post of Object.values(allPosts)) {%>
           <% let filename = post.title.replace(/ /g, "-"); %>
           <div class="card text-center " style="width: 18rem;">
-            <img class="card-img-top" src="media/<%=post.image%>" alt="Card image cap">
+            <img class="card-img-top" src="<%=post.image%>" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%=post.title%></h5>
               <p class="card-text"><%=post.previewContent%></p>
