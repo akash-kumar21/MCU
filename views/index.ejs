@@ -1,5 +1,5 @@
-<%- include('global/header', {title: 'The Marvel Cinematic Universe'}); %>
-<%- include('global/navbar', {posts: allPosts}); %>
+<%- include('partials/header', {page_title: 'The Marvel Cinematic Universe'}); %>
+<%- include('partials/navbar.ejs', {posts: allPosts}); %>
 
 
 <div id = "index-body" class="container-fluid">
@@ -8,7 +8,7 @@
       <h1 id = "index-left-links"> Links </h1>
       <h2><a id = "index-home-link" class = "text-center" href="/">Home</a></h2>
       <h2><a id = "index-about-link" class = "text-center" href="/about">About</a></h2>
-      <h2><a id = "index-home-link" class = "text-center" href="/createBlog">Create Blog</a></h2>
+      <h2><a id = "index-home-link" class = "text-center" href="/blog/create">Create Blog</a></h2>
     </div>
     <div class="col-4">
       <h1 class = "text-center" >Media</h1>
@@ -40,7 +40,7 @@
             <div class="card-body">
               <h5 class="card-title"><%=post.title%></h5>
               <p class="card-text"><%=post.previewContent%></p>
-              <a href="blogs/<%=filename%>" class="btn btn-primary">Post</a>
+              <a href="blog/<%=filename%>" class="btn btn-primary">Post</a>
             </div>
           </div>
           <br></br>
@@ -50,4 +50,4 @@
 </div>
 
 
-<%- include('global/footer'); %>
+<%- include('partials/footer.ejs'); %>

@@ -1,0 +1,16 @@
+<%-include('../partials/header', {page_title:"Film Details"})-%>
+
+    <div class="jumbotron">
+        <h1><%= film.title %></h1>
+        <p class="lead"><%= film.plot %></p>
+    </div>
+
+	<img src='<%= film.poster %>' height="200" width ="150"></img>
+	<% Object.keys(film).forEach(function(key){ %>
+		<% if(key!='poster'&key!='title'&key!='plot'){ %>
+			<h3><%= key %>: <%= film[key] %></h3>
+		<% } %>
+	<% }); %>
+	<a href="/films">Return to List</a>
+
+  <%-include('../partials/footer')-%>

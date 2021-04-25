@@ -1,0 +1,35 @@
+<%- include('../partials/header', {page_title: "Author: " + author.name}); %>
+<%- include('../partials/navbar', {posts: allPosts}); %>
+
+
+
+<div class="blog-body container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class = "text-center"><%= author.name.replace("-", " ") %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class = "text-center"><img height = "500" src="<%=author.photoURL%>"></div>
+    </div>
+  </div>
+  <br></br>
+  <div class="row">
+    <div class="col-12">
+      <p>Email: <%= author.email %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p>Quote: <%= author.quote %></p>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+<%- include('../partials/footer'); %>

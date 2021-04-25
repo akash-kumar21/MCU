@@ -1,0 +1,17 @@
+<%-include('../partials/header', {page_title:"Add a new film"})-%>
+
+	<h1>The Film Hut</h1>
+	<br>
+
+	<h2>Want to add this film?</h2>
+	<img src='<%= film.Poster %>' height="100" width ="75">
+	<h3>Name: <%= film.Title %></h3>
+	<h3>Year: <%= film.Year %></h4>
+	<form action="/film/<%=film.imdbID%>" method="POST">
+	<button>Add Film</button>
+	</form>
+	<form action="/films" method="GET">
+	<button>Cancel</button>
+	</form>
+
+	<%-include('../partials/footer')-%>

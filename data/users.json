@@ -1,0 +1,34 @@
+{
+  "Tony": {
+    "id": 1,
+    "username": "Iron Man",
+    "name": "Tony Stark",
+    "linkName": "Tony",
+    "quote": "I am Iron Man",
+    "email": "genius@gmail.com",
+    "photoURL": "https://i.pinimg.com/originals/a9/4d/d6/a94dd6d2db174d91100613bc0373af2f.jpg",
+    "comments": [
+      1222,
+      12225,
+      1234,
+      12345
+    ],
+    "views": [
+      "WandaVision-Leak",
+      "Spiderverse",
+      "Loki"
+    ],
+    "logins": [
+      "6/26/02 3:14am",
+      "2/27/21 4:19pm"
+    ],
+    "commentLikes": [
+      12345,
+      1234
+    ],
+    "blogPostLikes": [
+      "WandaVision-Leak",
+      "Spiderverse"
+    ]
+  }
+}

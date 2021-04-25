@@ -1,5 +1,6 @@
-<%- include('global/header', {title: 'MCU: Error'}); %>
-<%- include('global/navbar', {posts: allPosts}); %>
+<%- include('partials/header', {page_title:"Error Page"}) -%>
+
+<%- include('partials/navbar') -%>
 
 <div style = "height: 600px;" id = "error-body" class="row">
   <div class="col-12">
@@ -9,5 +10,4 @@
   </div>
 </div>
 
-
-<%- include('global/footer'); %>
+<%-include('partials/footer')-%>

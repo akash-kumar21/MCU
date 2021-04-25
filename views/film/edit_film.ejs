@@ -1,0 +1,39 @@
+<%-include('../partials/header', {page_title:"Edit Movie"})-%>
+
+
+<h1>The Movie Hut</h1>
+<br>
+<h2>Update <%= film.title %></h2>
+<img src='<%= film.poster %>' height="200" width ="150"></img>
+
+<form action="/film/<%= film.id%>?_method=PUT" method="POST">
+<ol>
+
+	<li>
+		title: <input type="text" name="title" value="<%= film.title %>">
+	</li>
+	<li>
+		year: <input type="text" name="year" value="<%= film.year %>">
+	</li>
+	<li>
+		rating: <input type="text" name="rating" value="<%= film.rating %>">
+	</li>
+	<li>
+		director: <input type="text" name="director" value="<%= film.director %>">
+	</li>
+	<li>
+		cast: <input type="text" name="cast" value="<%= film.cast %>">
+	</li>
+	<li>
+		plot: <input type="text" name="plot" value="<%= film.plot %>">
+	</li>
+	<li>
+		poster: <input type="text" name="poster" value="<%= film.poster %>">
+	</li>
+
+</ol>
+	<button>Update Film</button>
+</form>
+
+
+<%-include('../partials/footer')-%>
