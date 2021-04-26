@@ -34,15 +34,6 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <%for (let i = 0; i < post.tags.length; i++) {%>
-        <% let tag = post.tags[i][0]; %>
-        <% let cls = post.tags[i][1]; %>
-        <h5><span class="badge badge-pill badge-<%=cls%>">#<%=tag %></span></h5>
-      <%}%>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
       <% let numWinks = 0; %>
       <% if (post.winks) {%>
         <% numWinks = post.winks; %>

@@ -1,16 +1,25 @@
 var express = require('express');
 var app = express();
 var ejs = require('ejs');
+var path = require('path');
 var methodOverride = require('method-override');
+
 
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(methodOverride('_method'));
-app.set('view_engine', 'ejs');
+app.set('view engine', 'ejs');
+//app.set("views", path.resolve(__dirname, 'views'))
 app.use(express.static('public'));
 
-app.use(require('./controllers/film_controller'));
+
+
+
+
+
+app.use(require('./controllers/index'));
 app.use(require('./controllers/blog_controller'));
+app.use(require('./controllers/film_controller'));
 app.use(require('./controllers/author_controller'));
 app.use(require('./controllers/user_controller'));
 

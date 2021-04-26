@@ -9,7 +9,7 @@ let apikey = 'f09c17eb';
 
 const fs = require('fs');
 
-
+/*
 router.get('/', function(request, response) {
   let blogs = Blog.getAllBlogs();
   response.status(200);
@@ -28,6 +28,7 @@ router.get('/about', function(request, response) {
   });
 });
 
+
 router.get('/login', function(request, response) {
   let blogs = Blog.getAllBlogs();
   response.status(200);
@@ -36,6 +37,7 @@ router.get('/login', function(request, response) {
     allPosts: blogs
   });
 });
+*/
 
 
 router.get('/films', function(req, res){
