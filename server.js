@@ -16,6 +16,7 @@ app.use(express.static('public'));
 app.use(require('./controllers/index'));
 app.use(require('./controllers/blog_controller'));
 app.use(require('./controllers/film_controller'));
+app.use(require('./controllers/character_controller'));
 app.use(require('./controllers/author_controller'));
 app.use(require('./controllers/user_controller'));
 

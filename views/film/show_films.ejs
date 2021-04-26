@@ -1,4 +1,4 @@
-<%-include('../partials/header', {page_title:"All Movies"})-%>
+<%-include('../partials/header', {page_title:"All Films"})-%>
 <%- include('../partials/navbar', {allPosts: blogs}); %>
 
 
@@ -27,7 +27,7 @@
 		<% }) %>
 	    </div> <!--last row -->
 	    <br>
-	<h2> Want to add a new movie to the collection?</h2>
+	<h2> Want to add a new film to the collection?</h2>
 	<form class = "text-center" action="/film/create" method="GET">
 		<input type="text" name= "title" placeholder="Enter title to add...">
 		<button>Search for Movie</button>

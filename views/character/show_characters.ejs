@@ -1,0 +1,48 @@
+<%-include('../partials/header', {page_title:"All Characters"})-%>
+<%- include('../partials/navbar', {allPosts: characters}); %>
+
+
+
+<div id = "index-body" container">
+  <br>
+  <h1 class = "text-center"> CHARACTERS CHARACTERS CHARACTERS </h1>
+
+  <br></br>
+
+  <div class="row text-center">
+  <% let i = 0; %>
+  <% for (character of Object.values(characters)) {%>
+    <% let filename = character.name.replace(/ /g, "-"); %>
+  	<div class="col-4">
+			<h3><a href="/character/<%= filename %>"> <%= character.name %></a></h3>
+			<p><%= character.description%></p>
+
+  	<form action="/character/<%= filename %>/edit" method="GET">
+  	  <button>Update Character</button>
+  	</form>
+
+  	<form action="/character/<%= filename %>?_method=DELETE" method="POST">
+  	  <button>Delete Character</button>
+  	</form>
+  	</div>
+      <%if ((i+1)%3==0 && i!=0){ %>
+    </div> <!-- end the row div-->
+    <br></br>
+    <div class="row text-center">
+      <% } %>
+      <% i++; %>
+  	<% } %>
+      </div> <!--last row -->
+      <br>
+
+			<h2> Want to add a new character to the collection?</h2>
+			<form class = "text-center" action="/character/create" method="GET">
+				<input type="text" name= "name" placeholder="Enter character to add...">
+				<button>Search for Character</button>
+			</form>
+			<br>
+
+</div>
+
+
+<%-include('../partials/footer')-%>

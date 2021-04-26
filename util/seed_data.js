@@ -80,3 +80,16 @@ for (let authorname in authors) {
     photoURL: author.photoURL
   });
 }
+
+
+let characters = JSON.parse(fs.readFileSync('data/characters.json'));
+
+for (let charactername in characters) {
+  let character = characters[charactername];
+  character.charactername = charactername;
+  let oneCharacter = db.collection('characters').doc(charactername);
+  oneCharacter.set({
+    name: character.name,
+    description: character.description
+  });
+}

@@ -1,0 +1,20 @@
+
+
+	<%-include('../partials/header', {page_title:"Add a new character"})-%>
+
+		<h1>The Character Hut</h1>
+		<br>
+
+		<h2>Want to add this character?</h2>
+		<h3>Name: <%= character.name %></h3>
+		<p>Description: <%= character.description %></p>
+
+		<form action="/character/<%=character.name.replace(/ /g, '-');%>" method="POST">
+		<button>Add Character</button>
+		</form>
+
+		<form action="/characters" method="GET">
+		<button>Cancel</button>
+		</form>
+
+		<%-include('../partials/footer')-%>

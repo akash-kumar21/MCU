@@ -15,6 +15,7 @@
     "firebase-admin": "^9.6.0",
     "fs": "0.0.1-security",
     "html": "^1.0.0",
+    "md5": "^2.3.0",
     "method-override": "^3.0.0",
     "request": "^2.88.2",
     "virus": "0.0.5"

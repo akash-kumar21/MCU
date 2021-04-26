@@ -1,0 +1,22 @@
+<%-include('../partials/header', {page_title:"Edit Character"})-%>
+
+
+<h2>Update <%= character.name %></h2>
+
+<form action="/character/<%= character.id%>?_method=PUT" method="POST">
+<ol>
+
+	<li>
+		name (you may not change this): <input type="text" class = "hidden" name="name" value="<%= character.name %>">
+	</li>
+	<li>
+		description: <input type="text" name="description" value="<%= character.description %>">
+	</li>
+
+
+</ol>
+	<button>Update Character</button>
+</form>
+
+
+<%-include('../partials/footer')-%>
