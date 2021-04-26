@@ -1,38 +1,32 @@
-var fs = require('fs');
+var admin = require("firebase-admin");
+var db = admin.firestore();
 
-exports.getAllUsers = function() {
-  var userData = fs.readFileSync('data/users.json', 'utf8');
-  return JSON.parse(userData);
+
+
+exports.getAllUsers = async function() {
+  let allUsers = {};
+
+  try {
+    let users = await db.collection('users').get();
+    for (user of users.docs) {
+      allUsers[user.id] = user.data();
+    }
+    return allUsers;
+
+  } catch (err) {
+    console.log('Error getting documents', err);
+  }
 }
 
-exports.getuser = function(id) {
-  var userData = exports.getAllUsers();
 
-  if (userData[id]) return userData[id];
+exports.getUser = async function(id) {
+  try {
+    let allUsers = await exports.getAllUsers();
 
-  return {};
-}
-
-exports.getComments = function(id) {
-  var userData = exports.getAllUsers();
-
-  if (userData[id]) return userData[id].comments;
-
-  return {};
-}
-
-exports.saveUser = function(id, newUser) {
-  var userData = exports.getAllUsers();
-  userData[id] = newUser;
-  fs.writeFileSync('data/users.json', JSON.stringify(userData));
-}
-
-exports.updateUser = function(id, userData) {
-  exports.saveUser(id, userData)
-}
-
-exports.deleteUser = function(id) {
-  var userData = exports.getAllUsers();
-  delete userData[id];
-  fs.writeFileSync('data/users.json', JSON.stringify(userData));
+    if (allUsers[id]) {
+      return allUsers[id];
+    }
+  } catch (err) {
+    console.log(err)
+  }
 }

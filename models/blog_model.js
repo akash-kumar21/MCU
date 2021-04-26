@@ -5,7 +5,6 @@ admin.initializeApp({
 });
 var db = admin.firestore();
 
-//var fs = require('fs');
 
 
 exports.getAllBlogs = async function() {

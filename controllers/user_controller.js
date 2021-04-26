@@ -6,56 +6,69 @@ let Blog = require('../models/blog_model');
 
 const fs = require('fs');
 
-router.get('/', function(request, response) {
-  let blogs = Blog.getAllBlogs();
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("index", {
-    allPosts: blogs
-  });
-});
 
 
 
-router.get('/users', function(req, res){
-  let userList = User.getAllUsers();
-  let blogs = Blog.getAllBlogs();
 
-  res.status(200);
-  res.setHeader('Content-Type', 'text/html');
-  res.render('user/show_users.ejs', {
-    users: userList,
-    allPosts: blogs
-  });
-});
+router.get('/users', async function(req, res) {
+  try {
+    let userList = await User.getAllUsers();
+    let blogs = await Blog.getAllBlogs();
 
-
-router.get('/user/:userID', function(request, response) {
-  let blogs = Blog.getAllBlogs();
-
-  let users = User.getAllUsers();
-  let userName = request.params.userID;
-
-  if(users[userName]){
-    let person = users[userName];
-
-    response.status(200);
-    response.setHeader('Content-Type', 'text/html')
-    response.render("user/user_details.ejs",{
-      user: person,
-      allPosts: blogs
-    });
-
-
-  }
-  else{
-    response.status(404);
-    response.setHeader('Content-Type', 'text/html')
-    response.render("error.ejs", {
-      errorCode: "404",
+    res.status(200);
+    res.setHeader('Content-Type', 'text/html');
+    res.render('user/show_users.ejs', {
+      users: userList,
       allPosts: blogs
     });
   }
+  catch (error) {
+      response.status(500);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error", {
+        "errorCode": "500"
+      });
+    }
+
+});
+
+
+router.get('/user/:userID', async function(request, response) {
+  try {
+    let blogs = await Blog.getAllBlogs();
+
+    let users = await User.getAllUsers();
+    let userName = request.params.userID;
+
+    if(users[userName]){
+      let person = users[userName];
+
+      response.status(200);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("user/user_details.ejs",{
+        user: person,
+        allPosts: blogs
+      });
+
+
+    }
+    else{
+      response.status(404);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error.ejs", {
+        errorCode: "404",
+        allPosts: blogs
+      });
+    }
+  }
+  catch (error) {
+      response.status(500);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error", {
+        "errorCode": "500"
+      });
+    }
+
 });
 
 

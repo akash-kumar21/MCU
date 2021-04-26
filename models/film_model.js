@@ -84,7 +84,7 @@ exports.updateFilm = async function(id, filmData) {
 
 exports.deleteFilm = async function(id) {
   try {
-    const res = db.collection('films').doc(id).delete();
+    const res = await db.collection('films').doc(id).delete();
   }
   catch (err) {
     console.log(err)
