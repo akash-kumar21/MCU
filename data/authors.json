@@ -1,34 +1,10 @@
 {
   "Steve": {
-    "id": 0,
     "username": "Captain America",
     "linkName": "Steve",
     "name": "Steve Rogers",
     "quote": "I could do this all day",
-    "email": "cap@gmail.com",
-    "photoURL": "https://images-na.ssl-images-amazon.com/images/I/71vntClRfjL._AC_SL1500_.jpg",
-    "comments": [
-      1222,
-      12225,
-      1234,
-      12345
-    ],
-    "views": [
-      "WandaVision-Leak",
-      "Spiderverse",
-      "Loki"
-    ],
-    "logins": [
-      "6/26/02 3:14am",
-      "2/27/21 4:19pm"
-    ],
-    "commentLikes": [
-      12345,
-      1234
-    ],
-    "blogPostLikes": [
-      "WandaVision-Leak",
-      "Spiderverse"
-    ]
+    "email": "cap@yahoo.com",
+    "photoURL": "https://images-na.ssl-images-amazon.com/images/I/71vntClRfjL._AC_SL1500_.jpg"
   }
 }

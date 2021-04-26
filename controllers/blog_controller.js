@@ -114,7 +114,8 @@ router.post('/blogs', async function(request, response) {
         author: request.body.author,
         previewContent: request.body.previewContent,
         content: [request.body.content1, request.body.content2],
-        winks: 0
+        winks: 0,
+        comments: request.body.comments
     };
 
     let id = request.body.title.trim().replace(' ', '-');
@@ -309,11 +310,6 @@ router.put('/blog/:id', async function(req,res){
     newBlogData["author"]= req.body.author;
     newBlogData["previewContent"]= req.body.previewContent;
     newBlogData["content"]= [req.body.content_1, req.body.content_2];
-    newBlogData["tags"]= [
-      [req.body.tag_content_1, req.body.tag_style_1],
-      [req.body.tag_content_2, req.body.tag_style_2],
-      [req.body.tag_content_3, req.body.tag_style_3]
-    ];
     newBlogData["winks"] = req.body.winks;
     newBlogData["comments"] = blogs[req.body.title].comments;
 

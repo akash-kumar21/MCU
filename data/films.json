@@ -1,7 +1,6 @@
 {
   "Avengers-Endgame": {
     "title": "Avengers-Endgame",
-    "linkTitle": "Avengers-Endgame",
     "year": "2019",
     "rating": "PG-12",
     "director": "Russo Brothers",
@@ -35,5 +34,14 @@
     "cast": "Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel",
     "plot": "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
     "poster": "https://m.media-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SX300.jpg"
+  },
+  "The_Avengers_2012": {
+    "title": "The Avengers",
+    "year": "2012",
+    "rating": "PG-13",
+    "director": "Joss Whedon",
+    "cast": "Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth",
+    "plot": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
   }
 }

@@ -47,7 +47,6 @@ exports.saveBlog = async function(id, newBlog) {
       let blog = allBlogs[blogname];
       blog.blogname = blogname;
       let oneBlog = db.collection('blogs').doc(blogname);
-      console.log(blog);
       oneBlog.set({
         title: blog.title,
         image: blog.image,
@@ -66,6 +65,7 @@ exports.saveBlog = async function(id, newBlog) {
     console.log(err)
   }
 }
+
 
 exports.updateBlog = async function(id, blogData) {
   try {
@@ -101,7 +101,4 @@ exports.deleteBlog = async function(id) {
   catch (err) {
     console.log(err)
   }
-  // var blogData = exports.getAllBlogs();
-  // delete blogData[id];
-  // fs.writeFileSync('data/blogs.json', JSON.stringify(blogData));
 }

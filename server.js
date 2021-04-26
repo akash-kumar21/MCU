@@ -13,19 +13,19 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 
-
-
-
-
 app.use(require('./controllers/index'));
 app.use(require('./controllers/blog_controller'));
 app.use(require('./controllers/film_controller'));
 app.use(require('./controllers/author_controller'));
 app.use(require('./controllers/user_controller'));
 
-
-
-
+app.use("", function(request, response) {
+  response.status(404);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("error", {
+    "errorCode": "404"
+  });
+});
 
 
 const port = process.env.PORT || 3000;
