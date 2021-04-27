@@ -44,7 +44,7 @@ router.get('/character/create', async function(req, res){
 
 
     await request("https://gateway.marvel.com:443/v1/public/characters?name="+name+"&ts="+ts+"&apikey="+public_key+"&hash="+hash, function(err, response, body) {
-        if(!err){
+        if(!err && name.length > 0 && JSON.parse(body).data.results.length > 0){
           let characterResponse = JSON.parse(body);
           let realObject = {};
           realObject.name = characterResponse.data.results[0].name;
@@ -104,33 +104,6 @@ router.post('/character/:id', async function(req, res){
 });
 
 
-
-/*
-router.post('/characters/:id', async function(req, res){
-  try {
-    let characters = await Character.getAllCharacters();
-    let newCharacterData = {};
-
-
-    newCharacterData["name"] = req.body.name;
-    newCharacterData["description"] = req.body.description;
-
-
-
-    await Character.saveCharacter(req.body.name.replace(/ /g, '-'), newCharacterData);
-    res.redirect('/characters');
-  }
-  catch (error) {
-    res.status(500);
-    res.setHeader('Content-Type', 'text/html');
-    let blogs = await Blog.getAllBlogs();
-    res.render("error.ejs", {
-      errorCode: "500",
-      allPosts: blogs
-    });
-  }
-});
-*/
 
 
 

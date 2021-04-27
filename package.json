@@ -7,8 +7,9 @@
     "compile": "npm run compile:css",
     "lint1": "jslint ./public/js/scripts.js",
     "lint2": "jshint ./public/js/scripts.js",
+    "lint": "npm run lint1 && npm run lint2",
     "start": "node server.js",
-    "build": "npm run compile && npm run lint1 && npm run lint2 && npm run start"
+    "build": "npm run compile && npm run lint && npm run start"
   },
   "repository": {
     "type": "git",
