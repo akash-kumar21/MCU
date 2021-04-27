@@ -45,6 +45,9 @@
       "Plotly": true
     }
   },
+  "engines": {
+    "node": "12.18.3"
+  },
   "devDependencies": {},
   "description": ""
 }
