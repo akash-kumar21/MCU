@@ -1,12 +1,20 @@
 {
-  "name": "inside_the_mcu",
+  "name": "inside-the-mcu",
   "version": "0.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "compile:css": "./node_modules/less/bin/lessc ./public/LESS/styles.less > ./public/css/styles.css",
+    "compile": "npm run compile:css",
+    "lint1": "jslint ./public/js/scripts.js",
+    "lint2": "jshint ./public/js/scripts.js",
+    "start": "node server.js",
+    "build": "npm run compile && npm run lint1 && npm run lint2 && npm run start"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akash-kumar21/MCU.git"
+  },
+  "author": "Akash Kumar",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.6",
@@ -15,10 +23,26 @@
     "firebase-admin": "^9.6.0",
     "fs": "0.0.1-security",
     "html": "^1.0.0",
+    "jshint": "^2.12.0",
+    "jslint": "^0.12.1",
+    "less": "^4.1.1",
+    "lint": "^0.7.0",
     "md5": "^2.3.0",
     "method-override": "^3.0.0",
-    "request": "^2.88.2",
-    "virus": "0.0.5"
+    "request": "^2.88.2"
+  },
+  "jshintConfig": {
+    "curly": true,
+    "eqeqeq": true,
+    "undef": true,
+    "unused": true,
+    "varstmt": true,
+    "devel": true,
+    "browser": true,
+    "esversion": 6,
+    "globals": {
+      "Plotly": true
+    }
   },
   "devDependencies": {},
   "description": ""

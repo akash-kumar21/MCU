@@ -1,0 +1,166 @@
+/* Color Pallete */
+@midnight-black: #2B2D42;
+@space-gray: #8D99AE;
+@linen-white: #EDF2F4;
+@cardinal-red: #EF233C;
+@marvel-red: #D90429;
+
+/* new colors using built-in LESS color functions */
+@light-red: lighten(@marvel-red, 20%);
+@akash-pink: mix(@cardinal-red, @space-gray, 50%);
+
+/* Mixins */
+.borderify {
+  border: 15px;
+  border-color: @linen-white;
+  border-style: double;
+  padding: 10px;
+  margin: 10px;
+}
+
+.display {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Bebas Neue');
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+
+
+
+#alpha-header {
+  color: @marvel-red;
+  font-family: 'Bebas Neue';
+  font-size: 60px;
+}
+
+#beta-header {
+  font-family: 'Anton';
+  font-size: 45px;
+}
+
+#footer-body {
+  background-color: @akash-pink;
+}
+
+#index-body {
+  background-color: @space-gray;
+  font-family: 'Bebas Neue';
+}
+
+#index-left-links {
+  font-size: 40px;
+  text-align: center;
+}
+
+#index-home-link {
+  color: @marvel-red;
+}
+
+#index-about-link {
+  color: @marvel-red;
+}
+
+#index-mcu-snapshot {
+  font-size: 30px;
+}
+
+#index-best-trailer {
+  font-size: 30px;
+}
+
+#index-get-hype {
+  font-size: 30px;
+}
+
+h2 {
+  text-align: center;
+}
+
+img.roster {
+  width: 90%;
+  display: block;
+  .borderify();
+}
+
+iframe.trailer {
+  .display();
+}
+
+embed.song {
+  .display();
+}
+
+#about-about {
+  font-size: 45px;
+}
+
+#about-home {
+  font-size: 35px;
+}
+
+#about-home-link {
+  color: @linen-white;
+}
+
+#about-content {
+  font-size: 25px;
+}
+
+#about-three-links-are {
+  font-size: 25px;
+}
+
+#about-list {
+  font-size: 20px;
+}
+
+.blog-body {
+  background-color: @space-gray;
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+#about-body {
+  background-color: @light-red;
+}
+
+#about-link-1 {
+  color: @linen-white;
+}
+
+#about-link-2 {
+  color: @linen-white;
+}
+
+#about-link-3 {
+  color: @linen-white;
+}
+
+.blog-image {
+  .borderify();
+}
+
+#footer-email {
+  color: @linen-white;
+}
+
+.hidden {
+  visibility: hidden;
+}
+#error-body {
+  background-color: @space-gray;
+  font-family: 'Bebas Neue';
+}
+#create-blog-body {
+  background-color: @space-gray;
+  font-family: 'Bebas Neue';
+}
