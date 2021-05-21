@@ -1,0 +1,41 @@
+<%- include('../partials/header', {page_title: "Quiz: " + quiz.title}); %>
+<%- include('../partials/navbar', {posts: allPosts}); %>
+
+
+
+<div class="blog-body container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class = "text-center"><%= quiz.title.replace("-", " ") %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class = "text-center"><img height = "500" src="<%=quiz.photoURL%>"></div>
+    </div>
+  </div>
+  <br></br>
+
+  <form class = "text-center" action="/quizzes"  method="post">
+    <label for="title"></label><br>
+    <input value = "<%=quiz.title%>" hidden type="text" id="title" name="title"><br>
+    <br>
+    <% for (let i = 0; i < quiz.questions.length; i++) {%>
+      <% let q = quiz.questions[i]; %>
+
+      <label for="q<%=i%>"><%=q%></label><br>
+      <input required type="text" id="q<%=i%>" name="q<%=i%>"><br>
+      <br>
+    <%}%>
+
+
+    <input required type="submit" value="Submit">
+    <br></br>
+  </form>
+
+
+
+</div>
+
+
+<%- include('../partials/footer'); %>

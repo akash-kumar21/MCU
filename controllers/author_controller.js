@@ -6,8 +6,16 @@ let Blog = require('../models/blog_model');
 
 const fs = require('fs');
 
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
 
-router.get('/authors', async function(req, res) {
+
+router.get('/authors', loggedIn, async function(req, res) {
   try {
     let authorList = await Author.getAllAuthors();
     let blogs = await Blog.getAllBlogs();
@@ -16,21 +24,23 @@ router.get('/authors', async function(req, res) {
     res.setHeader('Content-Type', 'text/html');
     res.render('author/show_authors.ejs', {
       authors: authorList,
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
   catch (error) {
       response.status(500);
       response.setHeader('Content-Type', 'text/html')
       response.render("error", {
-        "errorCode": "500"
+        "errorCode": "500",
+        user: request.user
       });
     }
 
 });
 
 
-router.get('/author/:authorID', async function(request, response) {
+router.get('/author/:authorID', loggedIn, async function(request, response) {
   try {
     let blogs = await Blog.getAllBlogs();
 
@@ -44,7 +54,8 @@ router.get('/author/:authorID', async function(request, response) {
       response.setHeader('Content-Type', 'text/html')
       response.render("author/author_details.ejs",{
         author: writer,
-        allPosts: blogs
+        allPosts: blogs,
+        user: request.user
       });
 
 
@@ -54,7 +65,8 @@ router.get('/author/:authorID', async function(request, response) {
       response.setHeader('Content-Type', 'text/html')
       response.render("error.ejs", {
         errorCode: "404",
-        allPosts: blogs
+        allPosts: blogs,
+        user: request.user
       });
     }
   }
@@ -62,7 +74,8 @@ router.get('/author/:authorID', async function(request, response) {
       response.status(500);
       response.setHeader('Content-Type', 'text/html')
       response.render("error", {
-        "errorCode": "500"
+        "errorCode": "500",
+        user: request.user
       });
     }
 });

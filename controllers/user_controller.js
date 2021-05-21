@@ -7,10 +7,16 @@ let Blog = require('../models/blog_model');
 const fs = require('fs');
 
 
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
 
 
-
-router.get('/users', async function(req, res) {
+router.get('/users', loggedIn, async function(req, res) {
   try {
     let userList = await User.getAllUsers();
     let blogs = await Blog.getAllBlogs();
@@ -19,21 +25,23 @@ router.get('/users', async function(req, res) {
     res.setHeader('Content-Type', 'text/html');
     res.render('user/show_users.ejs', {
       users: userList,
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
   catch (error) {
       response.status(500);
       response.setHeader('Content-Type', 'text/html')
       response.render("error", {
-        "errorCode": "500"
+        "errorCode": "500",
+        user: request.user
       });
     }
 
 });
 
 
-router.get('/user/:userID', async function(request, response) {
+router.get('/user/:userID', loggedIn, async function(request, response) {
   try {
     let blogs = await Blog.getAllBlogs();
 
@@ -57,7 +65,8 @@ router.get('/user/:userID', async function(request, response) {
       response.setHeader('Content-Type', 'text/html')
       response.render("error.ejs", {
         errorCode: "404",
-        allPosts: blogs
+        allPosts: blogs,
+        user: request.user
       });
     }
   }

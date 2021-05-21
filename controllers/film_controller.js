@@ -9,9 +9,17 @@ let apikey = 'f09c17eb';
 
 const fs = require('fs');
 
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
 
 
-router.get('/films', async function(req, res){
+
+router.get('/films', loggedIn, async function(req, res){
   try {
     let filmList = await Film.getAllFilms();
     let blogList = await Blog.getAllBlogs();
@@ -19,7 +27,8 @@ router.get('/films', async function(req, res){
     res.setHeader('Content-Type', 'text/html');
     res.render('film/show_films.ejs', {
       films: filmList,
-      blogs: blogList
+      blogs: blogList,
+      user: request.user
     });
   }
   catch (error) {
@@ -27,13 +36,14 @@ router.get('/films', async function(req, res){
     response.setHeader('Content-Type', 'text/html')
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.get('/film/create', async function(req, res){
+router.get('/film/create', loggedIn, async function(req, res){
   try {
     let title=req.query.title;
     title=title.replace(/ /g, '+');
@@ -43,7 +53,8 @@ router.get('/film/create', async function(req, res){
           res.status(200);
           res.setHeader('Content-Type', 'text/html');
           res.render('film/new_film.ejs', {
-            film: filmResponse
+            film: filmResponse,
+            user: request.user
           });
         }
         else{
@@ -56,13 +67,14 @@ router.get('/film/create', async function(req, res){
     response.setHeader('Content-Type', 'text/html')
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.post('/film/:imdbID', async function(req, res){
+router.post('/film/:imdbID', loggedIn, async function(req, res){
   try {
     let filmID = req.params.imdbID;
 
@@ -92,13 +104,14 @@ router.post('/film/:imdbID', async function(req, res){
     response.setHeader('Content-Type', 'text/html')
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 
 });
 
-router.get('/film/:id', async function(req,res) {
+router.get('/film/:id', loggedIn, async function(req,res) {
   try {
     let thisFilm = await Film.getFilm(req.params.id);
 
@@ -110,7 +123,10 @@ router.get('/film/:id', async function(req,res) {
       let errorCode=404;
       res.status(errorCode);
       res.setHeader('Content-Type', 'text/html');
-      res.render("error.ejs", {"errorCode":errorCode});
+      res.render("error.ejs", {
+        "errorCode":errorCode,
+        user: request.user
+      });
     }
   }
   catch (error) {
@@ -119,13 +135,14 @@ router.get('/film/:id', async function(req,res) {
     let blogs = await Blog.getAllBlogs();
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.get('/film/:id/edit', async function(req,res) {
+router.get('/film/:id/edit', loggedIn, async function(req,res) {
   try {
     let thisFilm = await Film.getFilm(req.params.id);
     thisFilm.id=req.params.id;
@@ -152,13 +169,14 @@ router.get('/film/:id/edit', async function(req,res) {
     let blogs = await Blog.getAllBlogs();
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.put('/film/:id', async function(req,res){
+router.put('/film/:id', loggedIn, async function(req,res){
   try {
     let films = await Film.getAllFilms();
     let newFilmData = {};
@@ -183,13 +201,14 @@ router.put('/film/:id', async function(req,res){
     let blogs = await Blog.getAllBlogs();
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.delete('/film/:id', function(req, res){
+router.delete('/film/:id', loggedIn, async function(req, res){
   //console.log(req.params.id);
   Film.deleteFilm(req.params.id);
   res.redirect('/films');

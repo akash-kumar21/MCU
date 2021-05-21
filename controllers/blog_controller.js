@@ -1,52 +1,65 @@
 let express = require('express'), router = express.Router();
 let request = require('request');
+const fs = require('fs');
 
 let Blog = require('../models/blog_model');
 
-const fs = require('fs');
+
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
 
 
 
 
-
-router.get('/blogs', async function(req, res) {
+router.get('/blogs', loggedIn, async function(req, res) {
 
   try {
     let blogList = await Blog.getAllBlogs();
     res.status(200);
     res.setHeader('Content-Type', 'text/html');
-    res.render('blog/show_blogs.ejs', {blogs: blogList});
-  }
-  catch (error) {
-      response.status(500);
-      response.setHeader('Content-Type', 'text/html')
-      response.render("error", {
-        "errorCode": "500"
-      });
-    }
-});
-
-
-router.get('/blog/create', async function(req, res) {
-  try {
-    let blogs = await Blog.getAllBlogs();
-    res.status(200);
-    res.setHeader('Content-Type', 'text/html')
-    res.render("blog/new_blog.ejs", {
-      allPosts: blogs
+    res.render('blog/show_blogs.ejs', {
+      blogs: blogList,
+      user: request.user
     });
   }
   catch (error) {
       response.status(500);
       response.setHeader('Content-Type', 'text/html')
       response.render("error", {
-        "errorCode": "500"
+        "errorCode": "500",
+        user: request.user
+      });
+    }
+});
+
+
+router.get('/blog/create', loggedIn, async function(req, res) {
+  try {
+    let blogs = await Blog.getAllBlogs();
+    res.status(200);
+    res.setHeader('Content-Type', 'text/html')
+    res.render("blog/new_blog.ejs", {
+      allPosts: blogs,
+      user: request.user
+    });
+  }
+  catch (error) {
+      response.status(500);
+      response.setHeader('Content-Type', 'text/html')
+      response.render("error", {
+        "errorCode": "500",
+        user: request.user
       });
   }
 });
 
 
-router.get('/blog/:blogID', async function(request, response) {
+router.get('/blog/:blogID', loggedIn, async function(request, response) {
   let blogName = request.params.blogID;
 
   try  {
@@ -58,7 +71,8 @@ router.get('/blog/:blogID', async function(request, response) {
       response.setHeader('Content-Type', 'text/html')
       response.render("blog/blog_details.ejs",{
         post: post,
-        allPosts: blogs
+        allPosts: blogs,
+        user: request.user
       });
     }
     else{
@@ -66,7 +80,8 @@ router.get('/blog/:blogID', async function(request, response) {
       response.setHeader('Content-Type', 'text/html')
       response.render("error.ejs", {
         errorCode: "404",
-        allPosts: blogs
+        allPosts: blogs,
+        user: request.user
       });
     }
   }
@@ -74,7 +89,8 @@ router.get('/blog/:blogID', async function(request, response) {
       response.status(500);
       response.setHeader('Content-Type', 'text/html')
       response.render("error", {
-        "errorCode": "500"
+        "errorCode": "500",
+        user: request.user
       });
   }
 });
@@ -83,7 +99,7 @@ router.get('/blog/:blogID', async function(request, response) {
 
 
 
-router.post('/blogs', async function(request, response) {
+router.post('/blogs', loggedIn, async function(request, response) {
   try  {
     let allPosts = await Blog.getAllBlogs();
 
@@ -133,7 +149,7 @@ router.post('/blogs', async function(request, response) {
 
 });
 
-router.get('/blog/:id/edit', async function(req,res) {
+router.get('/blog/:id/edit', loggedIn, async function(req,res) {
 
   try {
     let allBlogs = await Blog.getAllBlogs();
@@ -165,7 +181,7 @@ router.get('/blog/:id/edit', async function(req,res) {
 });
 
 
-router.post('/blog/wink/:blogID', async function(request, response) {
+router.post('/blog/wink/:blogID', loggedIn, async function(request, response) {
   let blogName = request.params.blogID;
 
   try {
@@ -200,7 +216,7 @@ router.post('/blog/wink/:blogID', async function(request, response) {
 });
 
 
-router.post('/blog/comments/:blogID', async function(request, response) {
+router.post('/blog/comments/:blogID', loggedIn, async function(request, response) {
   let blogName = request.params.blogID;
 
   try {
@@ -265,7 +281,7 @@ router.post('/blog/comments/:blogID', async function(request, response) {
 
 
 
-router.post('/blog/likes/:blogID', async function(request, response) {
+router.post('/blog/likes/:blogID', loggedIn, async function(request, response) {
   try {
     let blogs = await Blog.getAllBlogs();
     let blogName = request.params.blogID;
@@ -299,7 +315,7 @@ router.post('/blog/likes/:blogID', async function(request, response) {
 });
 
 
-router.put('/blog/:id', async function(req,res){
+router.put('/blog/:id', loggedIn, async function(req,res){
   try {
     let blogs = await Blog.getAllBlogs();
     let newBlogData = {};
@@ -326,7 +342,7 @@ router.put('/blog/:id', async function(req,res){
   }
 });
 
-router.delete('/blog/:id', function(req, res){
+router.delete('/blog/:id', loggedIn, function(req, res){
   //console.log(req.params.id);
   Blog.deleteBlog(req.params.id);
   res.redirect('/blogs');

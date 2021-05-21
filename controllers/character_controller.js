@@ -11,10 +11,18 @@ var md5 = require('md5');
 let hash = md5(ts+private_key+public_key);
 
 
+function loggedIn(request, response, next) {
+  if (request.user) {
+    next();
+  } else {
+    response.redirect('/login');
+  }
+}
 
 
 
-router.get('/characters', async function(req, res){
+
+router.get('/characters', loggedIn, async function(req, res){
   try {
     let characterList = await Character.getAllCharacters();
     let blogList = await Blog.getAllBlogs();
@@ -22,7 +30,8 @@ router.get('/characters', async function(req, res){
     res.setHeader('Content-Type', 'text/html');
     res.render('character/show_characters.ejs', {
       characters: characterList,
-      blogs: blogList
+      blogs: blogList,
+      user: request.user
     });
   }
   catch (error) {
@@ -30,13 +39,14 @@ router.get('/characters', async function(req, res){
     response.setHeader('Content-Type', 'text/html')
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.get('/character/create', async function(req, res){
+router.get('/character/create', loggedIn, async function(req, res){
   let blogs = await Blog.getAllBlogs();
   try {
     let name=req.query.name;
@@ -65,13 +75,14 @@ router.get('/character/create', async function(req, res){
     res.setHeader('Content-Type', 'text/html')
     res.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.post('/character/:id', async function(req, res){
+router.post('/character/:id', loggedIn, async function(req, res){
   let blogs = await Blog.getAllBlogs();
   try {
 
@@ -98,7 +109,8 @@ router.post('/character/:id', async function(req, res){
     res.setHeader('Content-Type', 'text/html')
     res.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
@@ -107,7 +119,7 @@ router.post('/character/:id', async function(req, res){
 
 
 
-router.get('/character/:id', async function(req,res) {
+router.get('/character/:id', loggedIn, async function(req,res) {
   try {
     let thisCharacter = await Character.getCharacter(req.params.id);
 
@@ -119,7 +131,10 @@ router.get('/character/:id', async function(req,res) {
       let errorCode=404;
       res.status(errorCode);
       res.setHeader('Content-Type', 'text/html');
-      res.render("error.ejs", {"errorCode":errorCode});
+      res.render("error.ejs", {
+        "errorCode":errorCode,
+        user: request.user
+      });
     }
   }
   catch (error) {
@@ -128,14 +143,15 @@ router.get('/character/:id', async function(req,res) {
     let blogs = await Blog.getAllBlogs();
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
 
-router.get('/character/:id/edit', async function(req,res) {
+router.get('/character/:id/edit', loggedIn, async function(req,res) {
   try {
     let thisCharacter = await Character.getCharacter(req.params.id);
     thisCharacter.id=req.params.id;
@@ -144,7 +160,8 @@ router.get('/character/:id/edit', async function(req,res) {
       res.status(200);
       res.setHeader('Content-Type', 'text/html');
       res.render("character/edit_character.ejs", {
-        character: thisCharacter
+        character: thisCharacter,
+        user: request.user
       });
     }
     else{
@@ -152,7 +169,8 @@ router.get('/character/:id/edit', async function(req,res) {
       res.status(errorCode);
       res.setHeader('Content-Type', 'text/html');
       res.render("error.ejs", {
-        "errorCode":errorCode
+        "errorCode":errorCode,
+        user: request.user
       });
     }
   }
@@ -162,13 +180,14 @@ router.get('/character/:id/edit', async function(req,res) {
     let blogs = await Blog.getAllBlogs();
     response.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.put('/character/:id', async function(req,res){
+router.put('/character/:id', loggedIn, async function(req,res){
   try {
     let characters = await Character.getAllCharacters();
     let newCharacterData = {};
@@ -187,13 +206,14 @@ router.put('/character/:id', async function(req,res){
     let blogs = await Blog.getAllBlogs();
     res.render("error.ejs", {
       errorCode: "500",
-      allPosts: blogs
+      allPosts: blogs,
+      user: request.user
     });
   }
 });
 
 
-router.delete('/character/:id', function(req, res){
+router.delete('/character/:id', loggedIn, async function(req, res){
   //console.log(req.params.id);
   Character.deleteCharacter(req.params.id);
   res.redirect('/characters');
